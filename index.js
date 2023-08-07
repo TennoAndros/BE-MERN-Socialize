@@ -1,8 +1,11 @@
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
-import "dotenv/config";
-import authRoute from "./routes/auth-route.js";
+import dotenv from "dotenv";
+import AuthRoute from "./routes/AuthRoute.js";
+import UserRoute from "./routes/UserRoute.js";
+
+dotenv.config({ path: ".env.production" });
 
 const app = express();
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -21,6 +24,7 @@ async function connectToDatabase() {
   }
 }
 
-app.use("/auth", authRoute);
+app.use("/auth", AuthRoute);
+app.use("/user", UserRoute);
 
 connectToDatabase();
