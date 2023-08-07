@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import AuthRoute from "./routes/AuthRoute.js";
 import UserRoute from "./routes/UserRoute.js";
 
+
 dotenv.config({ path: ".env.production" });
 
 const app = express();
@@ -26,5 +27,6 @@ async function connectToDatabase() {
 
 app.use("/auth", AuthRoute);
 app.use("/user", UserRoute);
+
 
 connectToDatabase();
