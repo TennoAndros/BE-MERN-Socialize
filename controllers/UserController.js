@@ -22,10 +22,30 @@ export const updateUser = async (req, res) => {
 
   if (id === currentUserId || currentUserAdminStatus) {
     try {
-      const user = await UserModel.finByIdAndUpdate(id, req.body, {
+      const user = await UserModel.findByIdAndUpdate(id, req.body, {
         new: true,
       });
       res.status(200).json(user);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }
+};
+
+export const followUser = async (req, res) => {
+  const id = req.params.id;
+
+  const { currentUserId } = req.body;
+  if (currentUserId === id) {
+    res.status(403).json({ message: "Action forbidden" });
+  } else {
+    try {
+      const followUser = UserModel.findById(followUser);
+      const followingUser = UserModel.findById(currentUserId);
+      if (!followUser.followers.includes(currentUserId)) {
+        await followUser.updateOne({ $push: { followers: currentUserId } });
+        await followingUser.updateOne({ $push: { following: id } });
+      }
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
