@@ -69,7 +69,7 @@ This repo was created using:
 
 ## ⚙️ System Setup
 
-The project was created using the listed versions of Node, PostgreSQL and npm:
+The project was created using the listed versions of Node, MongoDB and npm:
 
 - [Node](https://nodejs.org/en/) (version v18.17.0)
 - [MongoDB](https://www.mongodb.com/) (version 6.0)
