@@ -60,6 +60,7 @@ This repo was created using:
 | <sub>bcrypt</sub>      | `^5.1.0`  | _Password hashing and authentication_     |
 | <sub>body-parser</sub> | `^1.20.2` | _Parsing incoming request bodies_         |
 | <sub>dotenv</sub>      | `^16.3.1` | _Managing environment variables_          |
+| <sub>cors</sub>        | `2.8.5`   | _Cross-origin resource sharing_           |
 | <sub>express</sub>     | `^4.18.2` | _Web application framework for routing_   |
 | <sub>mongodb</sub>     | `^5.7.0`  | _Official MongoDB driver for Node.js_     |
 | <sub>mongoose</sub>    | `^7.4.2`  | _ODM library for MongoDB interactions_    |
