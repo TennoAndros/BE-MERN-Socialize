@@ -7,7 +7,7 @@ export const createPost = async (req, res) => {
 
   try {
     await newPost.save();
-    res.status(200).json("Post created!");
+    res.status(200).json(newPost);
   } catch (error) {
     res.status(500).json(error.message);
   }
@@ -69,7 +69,7 @@ export const reactToPost = async (req, res) => {
       res.status(200).json("Post Liked.");
     } else {
       await post.updateOne({ $pull: { likes: userId } });
-      res.status(200).json("Post Disliked.");
+      res.status(200).json("Post Unliked.");
     }
   } catch (error) {
     res.status(500).json({ message: error.message });

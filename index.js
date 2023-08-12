@@ -6,10 +6,15 @@ import cors from "cors";
 import AuthRoute from "./routes/AuthRoute.js";
 import UserRoute from "./routes/UserRoute.js";
 import PostRoute from "./routes/PostRoute.js";
+import UploadRoute from "./routes/UploadRoute.js";
 
 dotenv.config({ path: ".env.production" });
 
 const app = express();
+
+app.use(express.static("public"));
+app.use("/images", express.static("images"));
+
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
@@ -29,6 +34,7 @@ async function connectToDatabase() {
 
 app.use("/auth", AuthRoute);
 app.use("/user", UserRoute);
-app.use("/post", PostRoute);
+app.use("/posts", PostRoute);
+app.use("/upload", UploadRoute);
 
 connectToDatabase();
