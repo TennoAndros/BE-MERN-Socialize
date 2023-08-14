@@ -11,6 +11,7 @@ import UploadRoute from "./routes/UploadRoute.js";
 dotenv.config({ path: ".env.production" });
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.use(express.static("public"));
 app.use("/images", express.static("images"));
@@ -37,5 +38,5 @@ app.use("/posts", PostRoute);
 app.use("/upload", UploadRoute);
 
 connectToDatabase().then(() => {
-  app.listen(process.env.PORT, () => console.log("Listening"));
+  app.listen(PORT, () => console.log("Listening"));
 });
