@@ -26,7 +26,6 @@ async function connectToDatabase() {
       useUnifiedTopology: true,
     });
     console.log("Connected to MongoDB");
-    app.listen(process.env.PORT, () => console.log("Listening"));
   } catch (error) {
     console.error("Error connecting to MongoDB:", error.message);
   }
@@ -37,4 +36,6 @@ app.use("/user", UserRoute);
 app.use("/posts", PostRoute);
 app.use("/upload", UploadRoute);
 
-connectToDatabase();
+connectToDatabase().then(() => {
+  app.listen(process.env.PORT, () => console.log("Listening"));
+});
