@@ -79,3 +79,5 @@ The project was created using the listed versions of Node, MongoDB and npm:
 - [npm](https://www.npmjs.com/) (version 9.6.7)
 
 It might work with other versions but they haven't been tested.
+
+**More functionality will be added in the future.**
